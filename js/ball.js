@@ -18,14 +18,22 @@ class Ball {
     ctx.closePath();    
     
     this.ballX += this.dx
-//    this.ballY += this.dy
+    this.ballY += this.dy
     
     if (this.ballX >= canvas.width) {
       this.dx = -this.dx;
-    }    
+    }
+    else if (this.ballX < 0) {
+      this.dx = -this.dx;
+    }
+    else if (this.ballY >= canvas.height) {
+    this.dy = -this.dy;
+    }
+    else if (this.ballY < 0) {
+      this.dy = -this.dy;
+    }
   }
 }
 
-export let tennisBall = new Ball(canvas.width / 2, canvas.height / 2, 10, 5, -5);
+export let tennisBall = new Ball(canvas.width / 2, canvas.height / 2, 10, 5, -2);
 
-//tennisBall.ballX = tennisBall.ballX + 5;
