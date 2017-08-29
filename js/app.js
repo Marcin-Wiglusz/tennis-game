@@ -1,9 +1,19 @@
-import {draw} from './canvas';
+import {drawCanvas, canvas, ctx} from './canvas';
 import {tennisBall} from './ball';
+import {leftBar, rightBar} from './bar';
 
 
-//setInterval(draw, 10);
 
-draw();
-tennisBall.drawBall();
 
+function draw() {  
+  
+  drawCanvas();
+  tennisBall.drawBall();
+  leftBar.drawBar();
+  rightBar.drawBar();
+  
+}
+
+setInterval(draw, 10);
+
+//ctx.clearRect(0, 0, canvas.width, canvas.height);
