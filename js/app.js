@@ -1,9 +1,6 @@
 import {drawCanvas, canvas, ctx} from './canvas';
 import {tennisBall} from './ball';
-import {leftBar, rightBar} from './bar';
-import {mouseMoveHandler} from './mouseHandler';
-
-document.addEventListener('mousemove', mouseMoveHandler);
+import {leftBar, rightBar, barHeight} from './bar';
 
 function draw() {  
   
@@ -16,4 +13,3 @@ function draw() {
 
 setInterval(draw, 10);
 
-//ctx.clearRect(0, 0, canvas.width, canvas.height);
