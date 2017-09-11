@@ -6,6 +6,7 @@ import {leftBar, rightBar} from './bar';
 let playerScore = 0;
 let aiScore = 0;
 let win = false;
+let winScore = 3;
 
 class Ball {
   constructor(ballX, ballY, ballRadius, dx, dy) {
@@ -42,7 +43,6 @@ class Ball {
         playerScore++;
         tennisBall.resetBall();        
       }      
-//      Ball.resetBall(); no ball and bar respawn
     }    
     else if (this.ballX < 0) {
       //bouncing of the left bar
@@ -57,7 +57,6 @@ class Ball {
         aiScore++;
         tennisBall.resetBall();         
       }  
-//      Ball.resetBall();
     }
     //boucing of the bottom
     else if (this.ballY + this.ballRadius >= canvas.height) {
@@ -71,28 +70,32 @@ class Ball {
   
 
   resetBall() {
-    //win conditions
-    let winScore = 2;    
+    //win conditions     
     if (playerScore >= winScore || aiScore >= winScore) {
       win = true;
-//      console.log(win);      
     } 
 
     //reseting ball position to the center after scoring and changing ball direction
-    this.dy = -2; 
-    this.dx = - this.dx;
     this.ballX = canvas.width / 2;
     this.ballY = canvas.height / 2;
+    this.dy = -2; 
+    this.dx = - this.dx;    
   }
   
   gameReset() {
       if (win) {
-//      console.log(win);
+        //displaying player win
+        if (playerScore >= winScore) {
+          ctx.fillText('You Won!', 50, 250);
+        }
+        //displaying computer win
+        else if (aiScore >= winScore) {
+          ctx.fillText('Computer Won!', 450, 250);
+        }
       ctx.font = '30px Courier New';
-      ctx.fillText('Click to restart', 50, canvas.height / 2);
+      ctx.fillText('Click to restart', 50, 400);
       this.ballX = canvas.width / 2;
       this.ballY = canvas.height / 2;  
-//      this.resetBall();
     }    
     return;
   }

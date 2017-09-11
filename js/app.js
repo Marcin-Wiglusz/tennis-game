@@ -4,8 +4,7 @@ import {leftBar, rightBar} from './bar';
 
 function draw() {  
   
-  drawCanvas();  
-  
+  drawCanvas();    
   tennisBall.drawBall();
   leftBar.drawBar();
   rightBar.drawBar();
