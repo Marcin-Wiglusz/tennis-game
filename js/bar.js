@@ -17,5 +17,5 @@ class Bar {
   }
 }
 export let leftBar = new Bar(10, positionY, 10, 100);
-//export let rightBar = new Bar(canvas.width - 20, (canvas.height - 100) / 2, 10, 100);
+export let rightBar = new Bar(canvas.width - 20, (canvas.height - 100) / 2, 10, 100);
 

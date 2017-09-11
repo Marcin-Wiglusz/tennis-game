@@ -6,3 +6,4 @@ export function drawCanvas() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
+//how to center canvas?

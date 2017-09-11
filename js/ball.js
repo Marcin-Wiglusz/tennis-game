@@ -1,4 +1,5 @@
 import {canvas, ctx} from './canvas';
+import {leftBar, rightBar} from './bar';
 
 
 class Ball {
@@ -15,23 +16,46 @@ class Ball {
     ctx.beginPath()
     ctx.arc(this.ballX, this.ballY, this.ballRadius, 0, Math.PI * 2);
     ctx.fillStyle = '#fff';
-    ctx.closePath();    
+    ctx.closePath(); 
     
+    //adding ball movement
     this.ballX += this.dx
-    this.ballY += this.dy
+    this.ballY += this.dy    
     
     if (this.ballX >= canvas.width) {
-      this.dx = -this.dx;
-    }
+      //bouncing of the right bar
+      if (this.ballY > rightBar.barY && this.ballY < rightBar.barY + rightBar.barHeight) {
+        this.dx = -this.dx;
+      }
+      else{
+        tennisBall.resetBall();  
+      }      
+//      Ball.resetBall(); no ball and bar respawn
+    }    
     else if (this.ballX < 0) {
-      this.dx = -this.dx;
+      //bouncing of the left bar
+      if (this.ballY > leftBar.barY && this.ballY < leftBar.barY + leftBar.barHeight) {
+      this.dx = -this.dx;  
+      }
+      else{
+        tennisBall.resetBall();  
+      }  
+//      Ball.resetBall();
     }
-    else if (this.ballY >= canvas.height) {
+    //boucing of the bottom
+    else if (this.ballY + this.ballRadius >= canvas.height) {
     this.dy = -this.dy;
     }
-    else if (this.ballY < 0) {
+    //boucing of the top
+    else if (this.ballY < 0 + this.ballRadius) {
       this.dy = -this.dy;
     }
+  }
+  //reseting ball position to the center after score and changing ball direction
+  resetBall() {
+    this.dx = - this.dx;
+    this.ballX = canvas.width / 2;
+    this.ballY = canvas.height / 2;
   }
 }
 
