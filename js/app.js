@@ -8,6 +8,7 @@ function draw() {
   tennisBall.drawBall();
   leftBar.drawBar();
   rightBar.drawBar();
+  rightBar.aiMovement();
   
 }   
 

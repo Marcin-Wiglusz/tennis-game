@@ -14,5 +14,5 @@ export let positionY = 200;
 canvas.addEventListener('mousemove', function(evt) {
         let mousePos = getMousePos(canvas, evt);
         positionY = mousePos.y;
-        rightBar.barY = positionY;//can i do Bar?
+        leftBar.barY = positionY;//can i do Bar?
       });
