@@ -1,6 +1,6 @@
 import {canvas, ctx} from './canvas';
-import {positionY} from './mouseHandler';
-import {tennisBall} from './ball';
+import {positionY} from './leftBarHandler';
+import {tennisBall} from './ballAndScore';
 
 class Bar {
   constructor(barX, barY, barWidth, barHeight){
@@ -18,11 +18,12 @@ class Bar {
   }
   
   aiMovement() {
-    if (this.barY + (this.barHeight / 2) < tennisBall.ballY) {
-      this.barY += 2;
+    //ai bar follows ball
+    if (this.barY + (this.barHeight / 2) < tennisBall.ballY - 30) {
+      this.barY += 8;
     }
-    else {
-      this.barY -= 2;
+    else if (this.barY + (this.barHeight / 2) > tennisBall.ballY + 30){
+      this.barY -= 8;
     }
   }
 }

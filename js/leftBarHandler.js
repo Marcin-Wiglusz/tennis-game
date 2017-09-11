@@ -1,5 +1,6 @@
 import {canvas} from './canvas';
-import {leftBar, rightBar} from './bar';
+import {leftBar} from './bar';
+
 
 function getMousePos(canvas, evt) {
         let rect = canvas.getBoundingClientRect();
@@ -16,3 +17,6 @@ canvas.addEventListener('mousemove', function(evt) {
         positionY = mousePos.y - (leftBar.barHeight / 2);
         leftBar.barY = positionY;//can i do Bar?
       });
+
+
+
