@@ -1,6 +1,8 @@
 import {canvas, ctx} from './canvas';
 import {leftBar, rightBar} from './bar';
 
+let playerScore = 0;
+let aiScore = 0;
 
 class Ball {
   constructor(ballX, ballY, ballRadius, dx, dy) {
@@ -27,8 +29,9 @@ class Ball {
       if (this.ballY > rightBar.barY && this.ballY < rightBar.barY + rightBar.barHeight) {
         this.dx = -this.dx;
       }
-      else{
-        tennisBall.resetBall();  
+      else{        
+        tennisBall.resetBall();
+        playerScore++;
       }      
 //      Ball.resetBall(); no ball and bar respawn
     }    
@@ -37,8 +40,9 @@ class Ball {
       if (this.ballY > leftBar.barY && this.ballY < leftBar.barY + leftBar.barHeight) {
       this.dx = -this.dx;  
       }
-      else{
+      else{        
         tennisBall.resetBall();  
+        aiScore++;
       }  
 //      Ball.resetBall();
     }
@@ -51,11 +55,19 @@ class Ball {
       this.dy = -this.dy;
     }
   }
+  
   //reseting ball position to the center after score and changing ball direction
   resetBall() {
     this.dx = - this.dx;
     this.ballX = canvas.width / 2;
     this.ballY = canvas.height / 2;
+  }
+  
+  //drawing score
+  score() {
+    ctx.font = '30px Courier New';  
+    ctx.fillText(playerScore, 100, 100);
+    ctx.fillText(aiScore, canvas.width - 100, 100);
   }
 }
 

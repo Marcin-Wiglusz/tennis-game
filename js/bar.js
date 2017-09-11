@@ -18,11 +18,11 @@ class Bar {
   }
   
   aiMovement() {
-    if (this.barY < tennisBall.ballY) {
-      this.barY += 6;
+    if (this.barY + (this.barHeight / 2) < tennisBall.ballY) {
+      this.barY += 2;
     }
     else {
-      this.barY -= 6;
+      this.barY -= 2;
     }
   }
 }
