@@ -111,7 +111,7 @@ class Ball {
 export let tennisBall = new Ball(canvas.width / 2, canvas.height / 2, 10, 5, -2);
 
 
-canvas.addEventListener('mousedown', function() {
+canvas.addEventListener('mousedown', ()=> {
   if (win) {
     playerScore = 0;
     aiScore = 0;

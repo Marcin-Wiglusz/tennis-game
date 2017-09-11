@@ -2,7 +2,7 @@ import {canvas} from './canvas';
 import {leftBar} from './bar';
 
 
-function getMousePos(canvas, evt) {
+let getMousePos = (canvas, evt)=> {
         let rect = canvas.getBoundingClientRect();
         return {
           x: evt.clientX - rect.left,
@@ -12,7 +12,7 @@ function getMousePos(canvas, evt) {
 
 export let positionY = 200;
       
-canvas.addEventListener('mousemove', function(evt) {
+canvas.addEventListener('mousemove', (evt)=> {
         let mousePos = getMousePos(canvas, evt);
         positionY = mousePos.y - (leftBar.barHeight / 2);
         leftBar.barY = positionY;

@@ -2,7 +2,7 @@ import {drawCanvas, drawNet} from './canvas';
 import {tennisBall} from './ballAndScore';
 import {leftBar, rightBar} from './bar';
 
-function draw() {  
+let draw = ()=> {  
   
   drawCanvas();    
   tennisBall.drawBall();
