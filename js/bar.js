@@ -6,9 +6,9 @@ class Bar {
   constructor(barX, barY, barWidth, barHeight){
 
     this.barX = barX;
-    this.barY = barY;
-    this.barHeight = barHeight;
+    this.barY = barY;    
     this.barWidth = barWidth;
+    this.barHeight = barHeight;
   }
   
   drawBar() {
@@ -22,7 +22,7 @@ class Bar {
     if (this.barY + (this.barHeight / 2) < tennisBall.ballY - 30) {
       this.barY += 8;
     }
-    else if (this.barY + (this.barHeight / 2) > tennisBall.ballY + 30){
+    else if (this.barY + (this.barHeight / 2) > tennisBall.ballY + 30) {
       this.barY -= 8;
     }
   }

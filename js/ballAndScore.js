@@ -28,36 +28,37 @@ class Ball {
     this.ballX += this.dx
     this.ballY += this.dy    
     
-    let bounceY;
+    let bounceY;    
     
-    if (this.ballX >= canvas.width) {
-      //bouncing of the right bar
-      if (this.ballY > rightBar.barY && this.ballY < rightBar.barY + rightBar.barHeight) {
-        this.dx = -this.dx;
+    if (this.ballX >= canvas.width - this.ballRadius - (rightBar.barWidth * 2)) {
+        //bouncing of the right bar
+      if (this.ballY >= rightBar.barY - this.ballRadius && this.ballY <= rightBar.barY + rightBar.barHeight + this.ballRadius && this.ballX < canvas.width - (rightBar.barWidth * 2)) {
+        this.dx = -this.dx;         
         
         // the closer to the edge the higher bounce angle and faster ball movement         
         bounceY = this.ballY - (rightBar.barY + rightBar.barHeight / 2);
         this.dy = bounceY * 0.3;
       }
-      else {        
+      else if (this.ballX > canvas.width - rightBar.barWidth) {        
         playerScore++;
         tennisBall.resetBall();        
-      }      
-    }    
-    else if (this.ballX < 0) {
+        }      
+    }
+    else if (this.ballX <= this.ballRadius + (leftBar.barWidth * 2)) {
       //bouncing of the left bar
-      if (this.ballY > leftBar.barY && this.ballY < leftBar.barY + leftBar.barHeight) {
+      if (this.ballY >= leftBar.barY - this.ballRadius && this.ballY <= leftBar.barY + leftBar.barHeight + this.ballRadius && this.ballX > leftBar.barWidth * 2) {        
         this.dx = -this.dx;
         
         // the closer to the edge the higher bounce angle and faster ball movement
         bounceY = this.ballY - (leftBar.barY + leftBar.barHeight / 2);
         this.dy = bounceY * 0.3;
-      }
-      else {     
+      }     
+      else if (this.ballX < leftBar.barWidth) {     
         aiScore++;
         tennisBall.resetBall();         
-      }  
+        }  
     }
+    
     //boucing of the bottom
     else if (this.ballY + this.ballRadius >= canvas.height) {
     this.dy = -this.dy;
