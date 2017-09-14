@@ -9,4 +9,7 @@ Features:
 Use your mouse to control left paddle:
 
 ## [tennis-game](https://marcin-wiglusz.github.io/tennis-game/)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2a41fb16033799af1ee9ce55b112e28c5eb2caa7
