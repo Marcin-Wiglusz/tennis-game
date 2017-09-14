@@ -79,8 +79,14 @@ class Ball {
     //reseting ball position to the center after scoring and changing ball direction
     this.ballX = canvas.width / 2;
     this.ballY = canvas.height / 2;
-    this.dy = -2; 
-    this.dx = - this.dx;    
+    this.dx = - this.dx;
+    //changing ball direction after scoring
+    if (playerScore % 2 == 0) {
+      this.dy = -2;
+    }
+    else {
+      this.dy = 2;
+    }   
   }
   
   gameReset() {
@@ -109,7 +115,7 @@ class Ball {
   }
 }
 
-export let tennisBall = new Ball(canvas.width / 2, canvas.height / 2, 10, 5, -2);
+export let tennisBall = new Ball(canvas.width / 2, canvas.height / 2, 10, 5, 2);
 
 
 canvas.addEventListener('mousedown', ()=> {
